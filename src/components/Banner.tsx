@@ -10,5 +10,11 @@ export default function Banner({
 }) {
   const isSuccess = state === "success";
   const icon = isSuccess ? "✅" : "🔥";
-  return <p>{`${icon} ${message}`}</p>;
+  return (
+    <p
+      className={`p-2 rounded-xl w-full text-center ${
+        isSuccess ? "bg-green-300" : "bg-red-300"
+      }`}
+    >{`${icon} ${message}`}</p>
+  );
 }

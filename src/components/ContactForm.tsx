@@ -9,6 +9,8 @@ type Form = {
   message: string;
 };
 
+const LABEL_CLASS = "font-semibold text-white";
+
 export default function ContactForm() {
   const [form, setForm] = useState<Form>({
     from: "",
@@ -32,10 +34,15 @@ export default function ContactForm() {
   };
 
   return (
-    <>
+    <section className="w-full max-w-md">
       {banner && <Banner banner={banner} />}
-      <form onSubmit={onSubmit}>
-        <label htmlFor="from">Your Email</label>
+      <form
+        onSubmit={onSubmit}
+        className="w-full flex flex-col gap-2 p-4 my-4 bg-slate-700 rounded-lg"
+      >
+        <label htmlFor="from" className={LABEL_CLASS}>
+          Your Email
+        </label>
         <input
           type="email"
           id="from"
@@ -45,7 +52,9 @@ export default function ContactForm() {
           value={form.from}
           onChange={onChange}
         />
-        <label htmlFor="subject">Subject</label>
+        <label htmlFor="subject" className={LABEL_CLASS}>
+          Subject
+        </label>
         <input
           type="text"
           id="subject"
@@ -54,7 +63,9 @@ export default function ContactForm() {
           value={form.subject}
           onChange={onChange}
         />
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message" className={LABEL_CLASS}>
+          Message
+        </label>
         <textarea
           rows={10}
           id="message"
@@ -62,9 +73,10 @@ export default function ContactForm() {
           required
           value={form.message}
           onChange={onChange}
+          className=""
         />
-        <button>Submit</button>
+        <button className="bg-yellow-300 font-bold">Submit</button>
       </form>
-    </>
+    </section>
   );
 }
