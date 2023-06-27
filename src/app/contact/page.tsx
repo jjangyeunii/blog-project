@@ -1,6 +1,12 @@
 import { SiVelog, SiNotion } from "react-icons/si";
 import { AiFillGithub } from "react-icons/ai";
 import ContactForm from "@/components/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description: "yenj에게 메일 보내기",
+};
 
 const LINKS = [
   { icon: <AiFillGithub />, url: process.env.REACT_APP_GITHUB_URL },
